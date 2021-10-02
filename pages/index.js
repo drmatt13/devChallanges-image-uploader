@@ -93,20 +93,20 @@ export default function Home() {
     fallbackCopyTextToClipboard(link)
   }
 
-  // useEffect(() => {
-  //   // handle input
-  //   input.current.onchange = () => {
-  //     processImage(input.current.files[0])
-  //   }
-  //   // handle drag and drop
-  //   dragContainer.current.addEventListener('dragenter', preventDefault, false)
-  //   dragContainer.current.addEventListener('dragleave', preventDefault, false)
-  //   dragContainer.current.addEventListener('dragover', preventDefault, false)
-  //   dragContainer.current.addEventListener('drop', preventDefault, false)
-  //   dragContainer.current.addEventListener('drop', e => {
-  //     processImage(e.dataTransfer.files[0])
-  //   })
-  // }, [])
+  useEffect(() => {
+    // handle input
+    input.current.onchange = () => {
+      processImage(input.current.files[0])
+    }
+    // handle drag and drop
+    dragContainer.current.addEventListener('dragenter', preventDefault, false)
+    dragContainer.current.addEventListener('dragleave', preventDefault, false)
+    dragContainer.current.addEventListener('dragover', preventDefault, false)
+    dragContainer.current.addEventListener('drop', preventDefault, false)
+    dragContainer.current.addEventListener('drop', e => {
+      processImage(e.dataTransfer.files[0])
+    })
+  }, [])
 
   return <>
     <Head>
@@ -125,7 +125,7 @@ export default function Home() {
     {/* hidden input */}
     <div className="min-h-screen px-4 w-full flex justify-center items-center bg-gray-100">
       <div className="w-80 xs:w-96 px-8 pt-10 pb-9 bg-white text-gray-600 rounded-xl shadow border flex flex-col items-center">
-        {/* {(!processingImage && !image) && <>
+        {(!processingImage && !image) && <>
           <h1 className="text-2xl">Upload your image</h1>
           <h2 className="mt-3 text-xs">File should be Jpeg, Png...</h2>
           <div ref={dragContainer} className="flex flex-col items-center justify-evenly w-full mt-5 h-52 bg-gray-100 rounded-xl border border-1 border-blue-500 border-dashed">
@@ -140,14 +140,14 @@ export default function Home() {
           >
             Choose a file
           </button>
-        </>} */}
-        {/* {processingImage && <> */}
+        </>}
+        {processingImage && <>
           <h1 className="w-full text-xl">Uploading...</h1>
           <div className="w-full h-2 mt-6 rounded-full bg-gray-200 overflow-hidden">
             <div className="bg-blue-500 h-full w-1/3 rounded-full animate-progress-bar" />
           </div>
-        {/* </>} */}
-        {/* {(!processingImage && image) && <>
+        </>}
+        {(!processingImage && image) && <>
           <i className="fas fa-check-circle text-green-600 text-5xl" />
           <h1 className="mt-4 text-xl text-center">Uploaded Successfully!</h1>
           <div className="mt-5 mx-16 w-full h-52 cursor-pointer">
@@ -173,7 +173,7 @@ export default function Home() {
               Copy Link
             </div>
           </div>
-        </>} */}
+        </>}
       </div>
       <footer className="absolute bottom-2 right-4 text-gray-400">created by Matthew Sweeney</footer>
     </div>
