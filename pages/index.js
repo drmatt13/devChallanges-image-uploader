@@ -121,7 +121,7 @@ export default function Home() {
       }
     `}</style>
     {/* hidden input */}
-    <input ref={input} type="file" accept="image/png, image/jpeg, image/jpg" className="hidden" />
+    <input ref={input} type="file" accept="image/png, image/gif, image/jpeg" className="hidden" />
     {/* hidden input */}
     <div className="min-h-screen px-4 w-full flex justify-center items-center bg-gray-100">
       <div className="w-80 xs:w-96 px-8 pt-10 pb-9 bg-white text-gray-600 rounded-xl shadow border flex flex-col items-center">
